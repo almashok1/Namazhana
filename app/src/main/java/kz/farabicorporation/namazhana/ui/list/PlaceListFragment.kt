@@ -36,8 +36,6 @@ class PlaceListFragment : BindingBottomSheetFragment<FragmentPlaceListBinding>(
         }
     )
 
-    override fun getTheme() = R.style.FullBottomSheetTheme
-
     private val vm get() = vm(PlaceListViewModel::class)!!
 
     private val distanceIds = mutableListOf<Int>()

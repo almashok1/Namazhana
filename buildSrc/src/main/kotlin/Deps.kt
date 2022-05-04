@@ -92,8 +92,8 @@ object Libs {
     }
 
     object Images {
-        const val GLIDE = "com.github.bumptech.glide:glide:4.12.0"
-        const val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:4.12.0"
+        const val GLIDE = "com.github.bumptech.glide:glide:4.13.0"
+        const val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:4.13.0"
         const val GLIDE_TRANSFORMATIONS = "jp.wasabeef:glide-transformations:4.0.0"
         const val BLURRY = "jp.wasabeef:blurry:4.0.1"
     }

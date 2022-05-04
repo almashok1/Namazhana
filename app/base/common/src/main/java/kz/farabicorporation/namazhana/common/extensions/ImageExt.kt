@@ -5,6 +5,8 @@ import android.widget.ImageView
 import androidx.annotation.DrawableRes
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
+import kz.farabicorporation.namazhana.common.GlideApp
 import kz.farabicorporation.namazhana.common.R
 
 const val DRIVE_BASE_URL = "https://docs.google.com/uc?id="
@@ -22,11 +24,13 @@ fun ImageView.loadUrl(
     if (url.isNullOrEmpty()) {
         loadDrawable(fallback)
     } else {
-        Glide.with(this)
+        GlideApp.with(this)
             .load(url)
             .fallback(fallback)
             .error(fallback)
             .placeholder(placeholder)
+            .skipMemoryCache(true)
+            .transition(DrawableTransitionOptions.withCrossFade())
             .diskCacheStrategy(DiskCacheStrategy.ALL)
             .timeout(timeOut)
             .into(this)
@@ -40,7 +44,7 @@ fun ImageView.loadUrl(
     if (url.isNullOrEmpty()) {
         loadDrawable(placeholder)
     } else {
-        Glide.with(this)
+        GlideApp.with(this)
             .load(url)
             .placeholder(placeholder)
             .diskCacheStrategy(DiskCacheStrategy.ALL)
@@ -50,13 +54,13 @@ fun ImageView.loadUrl(
 }
 
 fun ImageView.loadDrawable(@DrawableRes resId: Int) {
-    Glide.with(this)
+    GlideApp.with(this)
         .load(resId)
         .into(this)
 }
 
 fun ImageView.loadDrawable(drawable: Drawable) {
-    Glide.with(this)
+    GlideApp.with(this)
         .load(drawable)
         .into(this)
 }

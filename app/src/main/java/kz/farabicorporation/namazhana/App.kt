@@ -23,8 +23,4 @@ class App : Application() {
             modules(appModule, dataModule, domainModule, networkModule, serializerModule)
         }
     }
-
 }
-
-@GlideModule
-class AppGlideModule : AppGlideModule()
