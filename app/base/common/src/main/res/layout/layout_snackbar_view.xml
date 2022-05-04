@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="56dp"
+    android:gravity="center_vertical"
+    android:paddingStart="16dp"
+    tools:background="@color/text.secondary">
+
+    <FrameLayout
+        android:id="@+id/vgStartIcon"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="12dp"
+        android:background="?selectableItemBackgroundBorderless">
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progressIndicator"
+            style="@style/Widget.MaterialComponents.CircularProgressIndicator"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:indeterminate="false"
+            android:indeterminateOnly="false"
+            android:theme="?attr/circularProgressIndicatorStyle"
+            app:indicatorColor="@color/white"
+            app:indicatorDirectionCircular="counterclockwise"
+            app:indicatorSize="22dp"
+            app:trackColor="@android:color/transparent"
+            app:trackCornerRadius="20dp"
+            app:trackThickness="2dp"
+            tools:progress="60" />
+
+        <TextView
+            android:id="@+id/tvProgress"
+            style="@style/Text.Body2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/white"
+            tools:text="4" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivIcon"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="center"
+            android:visibility="gone" />
+
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/tvTitle"
+        style="@style/Text.Body2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ellipsize="end"
+        android:maxLines="1"
+        android:textColor="@color/white"
+        tools:text="Something interesting" />
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <TextView
+        android:id="@+id/tvAction"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        style="@style/Text.Body1.Bold"
+        android:gravity="center"
+        android:paddingHorizontal="16dp"
+        android:textColor="@color/white"
+        tools:text="Undo" />
+
+</LinearLayout>

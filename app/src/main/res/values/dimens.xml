@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <dimen name="cnb_space_0" tools:override="true">6dp</dimen>
+    <dimen name="cnb_space_1" tools:override="true">16dp</dimen>
+    <dimen name="cnb_space_2" tools:override="true">12dp</dimen>
+    <dimen name="cnb_space_3" tools:override="true">20dp</dimen>
+</resources>

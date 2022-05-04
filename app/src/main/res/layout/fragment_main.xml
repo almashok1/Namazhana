@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.yandex.mapkit.mapview.MapView
+        android:id="@+id/mapView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvMini"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:clipToPadding="false"
+        android:orientation="horizontal"
+        android:paddingHorizontal="20dp"
+        android:scrollbars="none"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toTopOf="@+id/vgShow"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/vgShow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="7dp"
+        android:gravity="center"
+        android:padding="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/bottomNav"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvShow"
+            style="@style/Text.Regular"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/common.hide"
+            android:textColor="@color/main.primary.one" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/ivShow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginStart="2dp"
+            android:paddingTop="3dp"
+            app:srcCompat="@drawable/ic_polygon_down" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnList"
+        style="@style/Button.Secondary.Small.Wrap"
+        android:layout_marginStart="16dp"
+        android:layout_marginBottom="16dp"
+        android:drawableEnd="@drawable/ic_polygon_right"
+        android:elevation="4dp"
+        android:fontFamily="@font/roboto_regular"
+        android:text="@string/common.list"
+        android:textAllCaps="false"
+        android:textColor="@color/main.primary.one"
+        app:elevation="4dp"
+        app:layout_constraintBottom_toTopOf="@+id/rvMini"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:contentDescription="@string/common.location"
+        android:elevation="4dp"
+        android:src="@drawable/ic_navigation_colorful_24"
+        app:backgroundTint="@color/white"
+        app:elevation="4dp"
+        app:fabCustomSize="44dp"
+        app:layout_constraintBottom_toTopOf="@+id/rvMini"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/main.primary.one" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/vgSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/bg_stroke_rounded_10"
+        android:minHeight="40dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etSearch"
+                android:layout_width="0dp"
+                android:layout_height="40dp"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:drawableStart="@drawable/ic_search_24"
+                android:drawablePadding="12dp"
+                android:hint="@string/common.search"
+                android:paddingHorizontal="12dp"
+                android:textAppearance="@style/Text.Regular"
+                android:textColor="@color/text.secondary"
+                android:textColorHint="@color/text.secondary"
+                android:textSize="16sp" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/ivFilter"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:layout_marginEnd="4dp"
+                android:background="?selectableItemBackgroundBorderless"
+                android:padding="8dp"
+                app:srcCompat="@drawable/ic_filter_24" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvSearch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="none"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <com.ismaeldivita.chipnavigation.ChipNavigationBar
+        android:id="@+id/bottomNav"
+        android:background="@drawable/bg_rounded_40"
+        android:layout_marginHorizontal="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="67dp"
+        app:cnb_animationDuration="175"
+        app:cnb_iconSize="24dp"
+        app:cnb_menuResource="@menu/bottom_nav_menu"
+        app:cnb_orientationMode="horizontal"
+        app:cnb_radius="40dp"
+        app:cnb_textAppearance="@style/Text.Regular"
+        app:cnb_unselectedColor="@color/text.secondary"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

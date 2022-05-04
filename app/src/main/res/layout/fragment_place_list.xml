@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="android.support.design.widget.BottomSheetBehavior"
+    android:background="@color/main.background">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navigationIcon="@drawable/ic_arrow_back_24"
+        app:title="@string/common.list"
+        app:titleCentered="true"
+        app:titleTextColor="@color/text.title"
+        app:titleTextAppearance="@style/Text.Subtitle2.Medium" />
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/vgSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/bg_stroke_rounded_10"
+        android:minHeight="40dp"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etSearch"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:background="@android:color/transparent"
+            android:drawableStart="@drawable/ic_search_24"
+            android:drawablePadding="12dp"
+            android:hint="@string/common.search"
+            android:paddingHorizontal="12dp"
+            android:textAppearance="@style/Text.Regular"
+            android:textColor="@color/text.secondary"
+            android:textColorHint="@color/text.secondary"
+            android:textSize="16sp" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/vgFilter"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:minHeight="57dp"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@+id/vgSearch">
+
+        <com.google.android.material.chip.ChipGroup
+            android:id="@+id/chipGroupType"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:paddingHorizontal="16dp"
+            app:layout_constraintStart_toStartOf="@+id/_tvTypeTitle"
+            app:layout_constraintTop_toBottomOf="@+id/_tvTypeTitle"
+            app:selectionRequired="true"
+            app:singleSelection="true" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvFilter"
+            style="@style/Text.Body2.Medium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:drawablePadding="4dp"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="@string/common.filter"
+            android:textColor="@color/text.title"
+            app:drawableStartCompat="@drawable/ic_filter_24"
+            app:drawableTint="@color/text.title" />
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/gray_10"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vgFilter">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingHorizontal="16dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="24dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/item_place_list" />
+
+        <kz.farabicorporation.namazhana.common.widgets.FullProgressView
+            android:id="@+id/loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

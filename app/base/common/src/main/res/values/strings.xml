@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ellipsis">&#8230;</string>
+    <string name="general_error_message">Something went wrong</string>
+    <string name="onboarding.title">Добро пожаловать\nв Namazhana!</string>
+    <string name="onboarding.description">С помощью данного приложения вам будет легче найти место для молитвы</string>
+    <string name="onboarding.mechet.title">Мечети</string>
+    <string name="onboarding.mechet.subtitle">Все 77 мечетей Алматы в нашем приложении</string>
+    <string name="onboarding.namazhana.title">Молельная комната</string>
+    <string name="onboarding.namazhana.subtitle">Информация о всех молельных комнатах</string>
+    <string name="onboarding.filter.title">Фильтр</string>
+    <string name="onboarding.filter.subtitle">Удобная фильтрация и критерии нужные вам</string>
+    <string name="onboarding.start">Начать</string>
+
+    <string name="common.workTime">с %s до %s</string>
+    <string name="common.mechet">Мечеть</string>
+    <string name="common.namazhana">Намазхана</string>
+    <string name="common.hide">скрыть</string>
+    <string name="common.unhide">раскрыть</string>
+    <string name="common.list">Список</string>
+    <string name="common.schedule">Расписание:</string>
+    <string name="common.womenPlace">Место для женщин:</string>
+    <string name="common.ablutionPlace">Место для омовения:</string>
+    <string name="common.isJumaRead">Читается Жума намаз:</string>
+    <string name="common.peopleFit">Вместительность:</string>
+    <string name="common.buildRoad">Построить маршрут</string>
+    <string name="common.floor">%d этаж</string>
+    <string name="common.feedbacks">Отзывы (%d)</string>
+    <string name="common.plusLeaveFeedback">+ Оставить отзыв</string>
+    <string name="common.yes">Да</string>
+    <string name="common.no">Нет</string>
+    <string name="common.settings">Настройки</string>
+    <string name="common.filter">Фильтр</string>
+    <string name="common.clear">Очистить</string>
+    <string name="common.readMore">Читать больше</string>
+    <string name="common.readLess">Меньше</string>
+    <string name="common.search">Поиск</string>
+    <string name="common.distanceM">%s м</string>
+    <string name="common.distanceKM">%s км</string>
+    <string name="common.location">Локация</string>
+    <string name="common.permission.location">Для корректной работы программы нужен доступ для местоположения, пожалуйста включите в настройках приложения</string>
+
+
+    <string name="filter.all">Все</string>
+    <string name="filter.near">Рядом</string>
+    <string name="filter.distancePlusKm">+ %d км</string>
+    <string name="filter.typeSearch">Я ищу</string>
+    <string name="filter.distance">Дистанция</string>
+    <string name="filter.womenPlace">Наличие комнат для женщин</string>
+    <string name="filter.ablutionPlace">Место для омовения</string>
+    <string name="filter.jumaRead">Читается Жума намаз</string>
+    <string name="filter.applyFilter">Применить фильтр</string>
+
+    <string name="tabs.namazhana.caps">НАМАЗХАНА</string>
+    <string name="tabs.mechet.caps">МЕЧЕТЬ</string>
+    <string name="tabs.all.caps">ВСЕ</string>
+</resources>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="BindingBottomSheetDialog" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:windowIsTranslucent">false</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
+
+    <style name="CircleShape" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="RoundedShapeBottom.10" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeBottomLeft">10dp</item>
+        <item name="cornerSizeBottomRight">10dp</item>
+    </style>
+
+    <style name="RoundedShape.10" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">10dp</item>
+    </style>
+
+    <style name="RoundedShape.20" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
+    </style>
+
+    <style name="RoundedShape.8" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <style name="RoundedShapeTop.21" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopLeft">21dp</item>
+        <item name="cornerSizeTopRight">21dp</item>
+    </style>
+
+    <style name="ShapeAppearance.Namazhana.LargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">21dp</item>
+    </style>
+
+<!--    <style name="RoundedTabLayout" parent="Widget.MaterialComponents.TabLayout" >-->
+<!--        <item name="android:background">@drawable/bg_tab_rounded_5</item>-->
+<!--        <item name="tabBackground">@color/text.secondary.27</item>-->
+<!--        <item name="tabTextColor">@color/text.edit.inverse</item>-->
+<!--        <item name="tabSelectedTextColor">@color/text.edit.inverse</item>-->
+<!--        <item name="tabIndicatorAnimationDuration">150</item>-->
+<!--        <item name="tabIndicatorGravity">center</item>-->
+<!--        <item name="tabIndicatorFullWidth">true</item>-->
+<!--        <item name="tabIndicatorHeight">30dp</item>-->
+<!--        <item name="tabIndicatorColor">@android:color/transparent</item>-->
+<!--        <item name="tabIndicator">@drawable/bg_tab_indicator_rounded_5</item>-->
+<!--        <item name="tabRippleColor">@android:color/transparent</item>-->
+<!--        <item name="tabTextAppearance">@style/Text.Body4</item>-->
+<!--    </style>-->
+
+
+    <style name="CustomBottomSheetDialog" parent="@style/ThemeOverlay.MaterialComponents.BottomSheetDialog">
+        <item name="bottomSheetStyle">@style/CustomBottomSheet</item>
+        <item name="materialButtonStyle">@style/CustomMaterialButtonStyle</item>
+    </style>
+
+    <style name="CustomMaterialButtonStyle" parent="@style/Widget.MaterialComponents.Button">
+        <item name="cornerRadius">16dp</item>
+    </style>
+
+    <style name="CustomBottomSheet" parent="Widget.MaterialComponents.BottomSheet">
+        <item name="shapeAppearanceOverlay">@style/CustomShapeAppearanceBottomSheetDialog</item>
+    </style>
+
+    <style name="CustomShapeAppearanceBottomSheetDialog" parent="">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="backgroundTint">@android:color/transparent</item>
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSizeTopRight">16dp</item>
+        <item name="cornerSizeTopLeft">16dp</item>
+        <item name="cornerSizeBottomRight">0dp</item>
+        <item name="cornerSizeBottomLeft">0dp</item>
+    </style>
+
+    <style name="Button.Chip" parent="Widget.MaterialComponents.Chip.Choice">
+        <item name="materialThemeOverlay">@style/ThemeOverlay.ButtonChip</item>
+        <item name="chipCornerRadius">12dp</item>
+        <item name="chipBackgroundColor">@color/chip_color</item>
+        <item name="chipStrokeColor">@color/chip_color_text</item>
+        <item name="chipStrokeWidth">1dp</item>
+        <item name="chipMinHeight">32dp</item>
+        <item name="android:selectable">true</item>
+        <item name="android:checkable">true</item>
+        <item name="android:clickable">true</item>
+        <item name="android:layout_marginEnd">5dp</item>
+        <item name="android:textColor">@color/chip_color_text</item>
+        <item name="android:textAppearance">@style/Text.Body2</item>
+    </style>
+
+    <style name="ThemeOverlay.ButtonChip" parent="">
+        <item name="elevationOverlayEnabled">false</item>
+    </style>
+
+    <style name="Button.Chip.Filled" parent="Button.Chip">
+        <item name="chipCornerRadius">16dp</item>
+        <item name="chipStrokeColor">@null</item>
+        <item name="chipStrokeWidth">0dp</item>
+        <item name="chipBackgroundColor">@color/chip_color_filled</item>
+        <item name="android:textColor">@color/chip_filled_color_text</item>
+    </style>
+
+    <style name="Switch.Primary" parent="Widget.AppCompat.CompoundButton.Switch">
+        <item name="thumbTint">@color/white</item>
+        <item name="trackTint">@color/switch_primary_track_tint</item>
+        <item name="useMaterialThemeColors">false</item>
+    </style>
+
+    <style name="FullBottomSheetTheme" parent="Theme.Design.Light.BottomSheetDialog">
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:backgroundDimEnabled">false</item>
+        <item name="android:windowSoftInputMode">adjustResize</item>
+    </style>
+
+    <style name="RoundedTabLayout" parent="Widget.MaterialComponents.TabLayout" >
+        <item name="android:background">@drawable/bg_rounded_40</item>
+        <item name="tabTextColor">@color/text.edit.inverse</item>
+        <item name="tabSelectedTextColor">@color/text.edit.inverse</item>
+        <item name="tabIndicatorAnimationDuration">150</item>
+        <item name="tabIndicatorGravity">center</item>
+        <item name="tabIndicatorFullWidth">true</item>
+        <item name="tabIndicatorHeight">57dp</item>
+        <item name="tabIndicatorColor">@android:color/transparent</item>
+        <item name="tabIndicator">@drawable/bg_rounded_indicator_40</item>
+        <item name="tabRippleColor">@android:color/transparent</item>
+        <item name="tabTextAppearance">@style/Text.Regular</item>
+    </style>
+
+
+</resources>

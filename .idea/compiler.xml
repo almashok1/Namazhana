@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel target="1.8">
+      <module name="Namazhana.app" target="11" />
+      <module name="Namazhana.app.base.common" target="11" />
+      <module name="Namazhana.app.base.data" target="11" />
+      <module name="Namazhana.app.base.domain" target="11" />
+      <module name="Namazhana.buildSrc" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

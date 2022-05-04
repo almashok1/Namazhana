@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/item.divider"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <FrameLayout
+        android:id="@+id/vgInitial"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:shapeAppearanceOverlay="@style/CircleShape"
+            app:srcCompat="@color/item.divider" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tvInitial"
+            style="@style/Text.Body2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:maxLength="1"
+            tools:text="A" />
+
+    </FrameLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvName"
+        style="@style/Text.Body2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="8dp"
+        android:textColor="@color/text.edit"
+        app:layout_constraintBottom_toTopOf="@+id/tvDate"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/vgInitial"
+        app:layout_constraintTop_toTopOf="@+id/vgInitial"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="Амарова Камила" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvDate"
+        style="@style/Text.Regular.12"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="@color/text.secondary"
+        app:layout_constraintBottom_toBottomOf="@+id/vgInitial"
+        app:layout_constraintEnd_toEndOf="@+id/tvName"
+        app:layout_constraintStart_toStartOf="@+id/tvName"
+        app:layout_constraintTop_toBottomOf="@+id/tvName"
+        app:layout_constraintVertical_chainStyle="packed"
+        tools:text="2 Дек.2021" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvText"
+        style="@style/Text.Regular.12"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="12dp"
+        android:ellipsize="end"
+        android:maxLines="2"
+        android:textColor="@color/text.edit"
+        app:layout_constraintBottom_toTopOf="@+id/tvReadMore"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/vgInitial"
+        tools:text="Любимая мечеть, еще в раннем возрасте апашка водила каждую пятницу с утра, Альхамдулиллах! Любимая мечеть, еще в раннем возрасте апашка водила каждую пятницу с утра, Альхамдулиллах! Любимая мечеть, еще в раннем возрасте апашка водила каждую пятницу с утра, Альхамдулиллах!" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvReadMore"
+        style="@style/Text.Regular.12"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginBottom="8dp"
+        android:text="@string/common.readMore"
+        android:textColor="@color/text.secondary"
+        android:visibility="gone"
+        app:fontFamily="@font/roboto_medium"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvText"
+        app:layout_constraintTop_toBottomOf="@+id/tvText" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

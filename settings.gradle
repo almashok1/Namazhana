@@ -1,0 +1,9 @@
+rootProject.buildFileName = "build.gradle.kts"
+rootProject.name = "Namazhana"
+include(":app")
+include(":app:base")
+include(":app:base:common")
+include(":app:base:arch")
+include(":app:base:data")
+include(":app:base:data:api")
+include(":app:base:domain")

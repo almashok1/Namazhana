@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/startFragment">
+
+    <fragment
+        android:id="@+id/startFragment"
+        android:name="kz.farabicorporation.namazhana.ui.StartFragment"
+        android:label="StartFragment">
+
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingFragment"
+        android:name="kz.farabicorporation.namazhana.ui.OnboardingFragment"
+        android:label="OnboardingFragment" />
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="kz.farabicorporation.namazhana.ui.MainFragment"
+        android:label="MainFragment">
+        <action
+            android:id="@+id/openPlaceDetails"
+            app:destination="@id/placeDetailsFragment" />
+    </fragment>
+
+    <action
+        android:id="@+id/action_global_mainFragment"
+        app:destination="@id/mainFragment" />
+    <action
+        android:id="@+id/action_global_onboardingFragment"
+        app:destination="@id/onboardingFragment" />
+    <dialog
+        android:id="@+id/placeDetailsFragment"
+        android:name="kz.farabicorporation.namazhana.ui.details.PlaceDetailsFragment"
+        android:label="PlaceDetailsFragment">
+        <argument
+            android:name="placeId"
+            app:argType="integer" />
+        <argument
+            android:name="distance"
+            android:defaultValue="@null"
+            app:argType="string"
+            app:nullable="true" />
+    </dialog>
+    <dialog
+        android:id="@+id/filterFragment"
+        android:name="kz.farabicorporation.namazhana.ui.filter.FilterFragment"
+        android:label="FilterFragment">
+        <argument
+            android:name="cityId"
+            app:argType="integer" />
+    </dialog>
+    <action
+        android:id="@+id/action_global_filterFragment"
+        app:destination="@id/filterFragment" />
+    <dialog
+        android:id="@+id/placeListFragment"
+        android:name="kz.farabicorporation.namazhana.ui.list.PlaceListFragment"
+        android:label="PlaceListFragment">
+        <argument
+            android:name="cityId"
+            app:argType="integer" />
+    </dialog>
+    <action
+        android:id="@+id/action_global_placeListFragment"
+        app:destination="@id/placeListFragment" />
+    <action
+        android:id="@+id/action_global_placeDetailsFragment"
+        app:destination="@id/placeDetailsFragment" />
+</navigation>
