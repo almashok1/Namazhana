@@ -10,6 +10,7 @@ import androidx.core.view.isVisible
 import androidx.core.widget.TextViewCompat
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.navArgs
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import kz.farabicorporation.namazhana.arch.models.OutcomeState
 import kz.farabicorporation.namazhana.common.BaseViewModel
@@ -101,6 +102,7 @@ class PlaceDetailsFragment : BindingBottomSheetFragment<FragmentPlaceDetailsBind
         tvDistance.setTextColor(color)
         tvName.text = place.name
         vpImages.adapter = ViewPagerAdapter(this@PlaceDetailsFragment, place)
+        (vpImages.getChildAt(0) as? RecyclerView)?.isNestedScrollingEnabled = false
         tvTime.text = (place.startWorkTime to place.endWorkTime).toWorkTime(requireContext())
         TextViewCompat.setCompoundDrawableTintList(ivTime, ColorStateList.valueOf(color))
         TextViewCompat.setCompoundDrawableTintList(ivAblutionPlace, ColorStateList.valueOf(color))
@@ -158,7 +160,9 @@ class PlaceDetailsFragment : BindingBottomSheetFragment<FragmentPlaceDetailsBind
         fragment: Fragment,
         private val placeFull: PlaceFull
     ) : FragmentStateAdapter(fragment) {
-        private val images = placeFull.images?.map { it.small.ifNullOrEmpty { it.original } } ?: listOf()
+        private val images = placeFull.images?.map { it.small.ifNullOrEmpty { it.original } }.let {
+            if (it.isNullOrEmpty()) listOf(null) else it
+        }
 
         override fun getItemCount() = images.size
 

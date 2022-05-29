@@ -53,9 +53,13 @@ fun ImageView.loadUrl(
     }
 }
 
-fun ImageView.loadDrawable(@DrawableRes resId: Int) {
+fun ImageView.loadDrawable(
+    @DrawableRes resId: Int,
+    diskCacheStrategy: DiskCacheStrategy = DiskCacheStrategy.NONE
+) {
     GlideApp.with(this)
         .load(resId)
+        .diskCacheStrategy(diskCacheStrategy)
         .into(this)
 }
 

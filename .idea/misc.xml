@@ -24,6 +24,7 @@
         <entry key="app/base/common/src/main/res/drawable/ic_switch_white_24.xml" value="0.344" />
         <entry key="app/base/common/src/main/res/drawable/ic_wate_sanitation_outline_24.xml" value="0.342" />
         <entry key="app/base/common/src/main/res/drawable/item_mechet_24.xml" value="0.344" />
+        <entry key="app/base/common/src/main/res/drawable/no_imge_placeholder_mechet.xml" value="0.351" />
         <entry key="app/base/common/src/main/res/drawable/placeholder_image.xml" value="0.2785" />
         <entry key="app/base/common/src/main/res/layout/layout_dialog_alert_text.xml" value="0.4053442028985507" />
         <entry key="app/base/common/src/main/res/layout/layout_full_progress.xml" value="0.4053442028985507" />
@@ -35,7 +36,7 @@
         <entry key="app/src/main/res/layout/fragment_filter.xml" value="0.459375" />
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.27410733534783344" />
         <entry key="app/src/main/res/layout/fragment_onboarding.xml" value="0.28069884811622514" />
-        <entry key="app/src/main/res/layout/fragment_place_details.xml" value="0.36129568106312293" />
+        <entry key="app/src/main/res/layout/fragment_place_details.xml" value="0.2574724698479287" />
         <entry key="app/src/main/res/layout/fragment_place_image.xml" value="0.459375" />
         <entry key="app/src/main/res/layout/fragment_place_list.xml" value="0.297821553548177" />
         <entry key="app/src/main/res/layout/fragment_start.xml" value="0.38269927536231885" />
@@ -43,7 +44,7 @@
         <entry key="app/src/main/res/layout/item_filter_chip.xml" value="0.459375" />
         <entry key="app/src/main/res/layout/item_main_search.xml" value="0.459375" />
         <entry key="app/src/main/res/layout/item_place_distance_chip.xml" value="0.4583333333333333" />
-        <entry key="app/src/main/res/layout/item_place_list.xml" value="0.39238637288411454" />
+        <entry key="app/src/main/res/layout/item_place_list.xml" value="0.5151662190755208" />
         <entry key="app/src/main/res/layout/item_place_mini.xml" value="0.6921783447265625" />
         <entry key="app/src/main/res/layout/layout_onboarding.xml" value="0.348266952865952" />
         <entry key="app/src/main/res/menu/bottom_nav_menu.xml" value="0.459375" />

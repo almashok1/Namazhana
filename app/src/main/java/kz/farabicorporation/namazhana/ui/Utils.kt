@@ -5,6 +5,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.location.LocationManager
 import android.net.Uri
 import android.provider.Settings
 import android.widget.ImageView
@@ -12,7 +13,6 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.core.content.ContextCompat
 import kz.farabicorporation.namazhana.common.R
 import kz.farabicorporation.namazhana.common.extensions.loadUrl
-import kz.farabicorporation.namazhana.common.extensions.loadWithDriveUrl
 import kz.farabicorporation.namazhana.common.extensions.showInfoDialog
 import kz.farabicorporation.namazhana.data.models.PlaceType
 
@@ -68,4 +68,29 @@ fun ImageView.loadWithPlaceType(url: String?, type: PlaceType) {
             PlaceType.NAMAZHANA -> R.drawable.no_image_namazhana
         }
     )
+}
+
+fun Context.checkLocationEnabled() {
+    val locationManager = getSystemService(Context.LOCATION_SERVICE) as LocationManager
+    var isGpsEnabled = false
+    var isNetworkEnabled = false
+    try {
+        isGpsEnabled = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
+    try {
+        isNetworkEnabled = locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)
+    } catch (e: Exception) {
+        e.printStackTrace()
+    }
+    if (!isGpsEnabled && !isNetworkEnabled) {
+        showInfoDialog(
+            "Включите геолокация для работы программы в настройках",
+            "Настройки"
+        ) { dialog, _ ->
+            startActivity(Intent(Settings. ACTION_LOCATION_SOURCE_SETTINGS))
+            dialog.dismiss()
+        }
+    }
 }

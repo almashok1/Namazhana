@@ -2,6 +2,8 @@ package kz.farabicorporation.namazhana.data.models
 
 import android.content.Context
 import android.os.Parcelable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 import kotlinx.parcelize.Parcelize
 import kz.farabicorporation.namazhana.arch.api.SerializedName
 import kz.farabicorporation.namazhana.common.R
@@ -38,7 +40,9 @@ class PlaceImage(
     val original: String
 )
 
+@Entity
 data class PlaceMini(
+    @PrimaryKey
     val id: Int,
     val name: String,
     val type: PlaceType,

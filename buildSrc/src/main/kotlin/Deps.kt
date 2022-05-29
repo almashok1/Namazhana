@@ -24,6 +24,12 @@ object Libs {
         const val MATERIAL = "com.google.android.material:material:1.4.0"
         const val VIEW_PAGER2 = "androidx.viewpager2:viewpager2:1.0.0"
         const val SWIPE_REFRESH = "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+
+        object Room {
+            private const val VERSION = "2.4.2"
+            const val ROOM = "androidx.room:room-runtime:$VERSION"
+            const val ROOM_COMPILER = "androidx.room:room-compiler:$VERSION"
+        }
     }
 
     object Kotlin {

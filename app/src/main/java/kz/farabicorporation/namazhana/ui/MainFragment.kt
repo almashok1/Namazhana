@@ -4,12 +4,10 @@ import android.annotation.SuppressLint
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.annotation.DrawableRes
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
-import androidx.core.view.children
 import androidx.core.view.isVisible
 import androidx.core.view.updateLayoutParams
 import androidx.core.widget.doAfterTextChanged
@@ -24,6 +22,8 @@ import com.yandex.mapkit.geometry.Point
 import com.yandex.mapkit.layers.ObjectEvent
 import com.yandex.mapkit.map.CameraPosition
 import com.yandex.mapkit.map.IconStyle
+import com.yandex.mapkit.map.MapObject
+import com.yandex.mapkit.map.MapObjectTapListener
 import com.yandex.mapkit.user_location.UserLocationLayer
 import com.yandex.mapkit.user_location.UserLocationObjectListener
 import com.yandex.mapkit.user_location.UserLocationView
@@ -51,7 +51,7 @@ import kz.farabicorporation.namazhana.ui.filter.FilterType
 import kotlin.reflect.KClass
 
 class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::inflate),
-    UserLocationObjectListener {
+    UserLocationObjectListener , MapObjectTapListener {
     override fun provideViewModel(): Map<KClass<*>, () -> BaseViewModel> = mapOf(
         vmCreator(MainMapViewModel::class)
     )
@@ -67,8 +67,12 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
     private var userLocationLayer: UserLocationLayer? = null
     private val mapView get() = binding.mapView
 
-    private val miniAdapter = MainPlaceMiniAdapter(::openPlaceDetails)
-    private val searchAdapter = MainSearchAdapter(::openPlaceDetails)
+    private val miniAdapter = MainPlaceMiniAdapter {
+        openPlaceDetails(it.id, it.distance, Point(it.latitude, it.longitude))
+    }
+    private val searchAdapter = MainSearchAdapter {
+        openPlaceDetails(it.id, it.distance, Point(it.latitude, it.longitude))
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -98,6 +102,7 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         createUserLocationLayer()
+        requireContext().checkLocationEnabled()
         binding.bottomNav.setItemSelected(Tab.ALL.getMenuId())
         binding.vgSearch.updateLayoutParams<ViewGroup.MarginLayoutParams> {
             topMargin = (16.dpToPx + requireActivity().getActionBarHeight()).toInt()
@@ -236,16 +241,16 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
     }
 
     private fun addPlacemark(list: List<PlaceMini>, @DrawableRes icon: Int) {
-        mapObjects.addPlacemarks(
-            list.map { place -> Point(place.latitude, place.longitude) },
-            ImageProvider.fromResource(requireContext(), icon, true),
-            IconStyle().setScale(DEFAULT_ICON_SCALE)
-        ).forEachIndexed { index, placemarkMapObject ->
-            placemarkMapObject.userData = list[index]
-            placemarkMapObject.addTapListener { mapObject, point ->
-                val place = mapObject.userData as? PlaceMini
-                place?.let(::openPlaceDetails)
-                true
+        val imageProvider = ImageProvider.fromResource(requireContext(), icon, true)
+        val iconStyle = IconStyle().setScale(DEFAULT_ICON_SCALE)
+        list.forEach {
+            mapObjects.addPlacemark(
+                Point(it.latitude, it.longitude),
+                imageProvider,
+                iconStyle
+            ).apply {
+                userData = UserData(it.id, it.distance)
+                addTapListener(this@MainFragment)
             }
         }
     }
@@ -269,15 +274,15 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
         MapKitFactory.getInstance().onStart()
     }
 
-    private fun openPlaceDetails(placeMini: PlaceMini) {
+    private fun openPlaceDetails(placeId: Int, distance: Float?, point: Point) {
         mapView.map.move(
-            CameraPosition(Point(placeMini.latitude, placeMini.longitude), ZOOM_MAX, 0.0f, 0.0f),
+            CameraPosition(point, ZOOM_MAX, 0.0f, 0.0f),
             Animation(Animation.Type.SMOOTH, 0.5F),
             null
         )
         findNavController().navigate(
             MainNavigationDirections.actionGlobalPlaceDetailsFragment(
-                placeMini.id, placeMini.distance?.getDistance(requireContext())
+                placeId, distance?.getDistance(requireContext())
             )
         )
     }
@@ -334,5 +339,13 @@ class MainFragment : BindingFragment<FragmentMainBinding>(FragmentMainBinding::i
             withActiveTab = predefinedItemTab
         )
     }
+
+    override fun onMapObjectTap(mapObject: MapObject, point: Point): Boolean {
+        val data = mapObject.userData as? UserData ?: return false
+        openPlaceDetails(data.id, data.distance, point)
+        return true
+    }
+
+    class UserData(val id: Int, val distance: Float?)
 
 }

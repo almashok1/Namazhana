@@ -74,6 +74,9 @@ dependencies {
     implementation(project(Modules.Libs.RETROFIT_API))
     implementation(project(Modules.Base.COMMON))
 
+    implementation(Libs.AndroidX.Room.ROOM)
+    kapt(Libs.AndroidX.Room.ROOM_COMPILER)
+
     // Logging
     debugImplementation(Libs.Logging.CHUCKER_DEBUG)
     releaseImplementation(Libs.Logging.CHUCKER_RELEASE)
